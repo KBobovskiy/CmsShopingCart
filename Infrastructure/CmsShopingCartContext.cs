@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CmsShopingCart.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,10 @@ namespace CmsShopingCart.Infrastructure
 {
     public class CmsShopingCartContext : DbContext
     {
-        public CmsShopingCartContext(DbContextOptions<CmsShopingCartContext> options) : base (options)
+        public CmsShopingCartContext(DbContextOptions<CmsShopingCartContext> options) : base(options)
         {
-
         }
+
+        public DbSet<Page> Pages { get; set; }
     }
 }
