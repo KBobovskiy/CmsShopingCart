@@ -1,13 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CmsShopingCart.Infrastructure;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace CmsShopingCart.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class PagesController : Controller
     {
-        public string Index()
+        private readonly CmsShopingCartContext context;
+
+        public PagesController(CmsShopingCartContext context)
         {
-            return "test string";
+            this.context = context;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var pagesList = await context.Pages.Select(p => p).ToListAsync();
+            return View(pagesList);
         }
     }
 }

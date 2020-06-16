@@ -11,6 +11,7 @@ namespace CmsShopingCart.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Page title")]
         public string Title { get; set; }
 
         [Required]
