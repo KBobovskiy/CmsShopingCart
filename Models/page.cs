@@ -8,7 +8,6 @@ namespace CmsShopingCart.Models
 {
     public class Page
     {
-        [Required]
         public int Id { get; set; }
 
         [Required]
